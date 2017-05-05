@@ -5,7 +5,7 @@
  * Description: Rhythms, the only WordPress plugin that automatically optimizes your website with lesser-known speed-reading hacks so that your readers can read your content faster than anywhere else on the web.
  * Version: 1.0.0
  * Author: Thomas Patrick Levy
- * Author URI: https://github.com/thomasplevy/rhythms
+ * Author URI: https://github.com/thomasplevy
  * Text Domain: rhythms
  * Domain Path: /i18n
  * License: GPLv2
