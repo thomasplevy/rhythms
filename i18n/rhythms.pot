@@ -1,0 +1,65 @@
+# Copyright (C) 2017 rhythms
+# This file is distributed under the same license as the rhythms package.
+msgid ""
+msgstr ""
+"Project-Id-Version: rhythms\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language-Team: Thomas Patrick Levy <thomas@gocodebox.com>\n"
+"Last-Translator: Thomas Patrick Levy <thomas@gocodebox.com>\n"
+"Report-Msgid-Bugs-To: https://github.com/thomasplevy/rhythms/issues\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: rhythms.php:132
+msgid "Rhythms Facts"
+msgstr ""
+
+#: rhythms.php:138
+msgid "Optimization Score: %s"
+msgstr ""
+
+#: rhythms.php:144
+msgid "Initial Characters: %s"
+msgstr ""
+
+#: rhythms.php:150
+msgid "Final Characters: %s"
+msgstr ""
+
+#: rhythms.php:156
+msgid "Characters Saved: %s"
+msgstr ""
+
+#: rhythms.php:162
+msgid "Invocations: %s"
+msgstr ""
+
+#: inc/class-rhythms-admin-settings.php:49
+msgid "Check to have Rhythms Optimizer automatically remove \"Y\". It's the worst, we agree with you."
+msgstr ""
+
+#: inc/class-rhythms-admin-settings.php:51
+msgid "And sometimes \"Y\"?"
+msgstr ""
+
+#: inc/class-rhythms-admin-settings.php:91, inc/class-rhythms-admin-settings.php:91
+msgid "Rhythms"
+msgstr ""
+
+#: inc/class-rhythms-admin-settings.php:114
+msgid "Rhythms Settings"
+msgstr ""
+
+#: inc/class-rhythms-admin-settings.php:127
+msgid "Save"
+msgstr ""
+
+#: inc/class-rhythms-optimizer.php:57
+msgid "Rhythms_Optimizer can only optimize strings!"
+msgstr ""
