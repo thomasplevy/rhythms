@@ -1,0 +1,15 @@
+{
+    "name": "thomasplevy/rhythms",
+    "type": "project",
+    "license": "GPL-2.0",
+    "authors": [
+        {
+            "name": "Thomas Patrick Levy",
+            "email": "thomasplevy@gmail.com"
+        }
+    ],
+    "require": {},
+    "scripts": {
+      "dist": "rm -rf ./__svn/trunk && mkdir ./__svn/trunk && cp rhythms.php ./__svn/trunk && cp readme.txt ./__svn/trunk && cp -R inc/ ./__svn/trunk && cp -R i18n/ ./__svn/trunk"
+    }
+}
