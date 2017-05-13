@@ -24,8 +24,16 @@ if ( ! class_exists( 'Rhythms' ) ) :
  */
 final class Rhythms {
 
+	/**
+	 * Version number
+	 * @var  string
+	 */
 	public $version = '1.0.0';
 
+	/**
+	 * Our sick nerdy facts
+	 * @var  array
+	 */
 	public $nerd_facts = array(
 		'invoked' => 0,
 		'start' => 0,
@@ -89,6 +97,12 @@ final class Rhythms {
 
 	}
 
+	/**
+	 * Define some constants
+	 * @return   void
+	 * @since    1.0.0
+	 * @version  1.0.0
+	 */
 	private function constants() {
 
 		if ( ! defined( 'RHYTHMS_DIR' ) ) {
@@ -97,6 +111,13 @@ final class Rhythms {
 
 	}
 
+	/**
+	 * Do the Rhythms thing on a string
+	 * @param    string     $content  some content
+	 * @return   a better string
+	 * @since    1.0.0
+	 * @version  1.0.0
+	 */
 	public function do_the_thing( $content ) {
 		$optimizer = new Rhythms_Optimizer( $content );
 		$optimizer->optimize();
@@ -107,6 +128,12 @@ final class Rhythms {
 		return $optimizer->get_optimized_content();
 	}
 
+	/**
+	 * Include Required files
+	 * @return   void
+	 * @since    1.0.0
+	 * @version  1.0.0
+	 */
 	public function includes() {
 
 		require_once RHYTHMS_DIR . '/inc/class-rhythms-optimizer.php';
@@ -117,10 +144,50 @@ final class Rhythms {
 
 	}
 
+	/**
+	 * Initialize
+	 * @return   void
+	 * @since    1.0.0
+	 * @version  1.0.0
+	 */
 	public function init() {
+		$this->localize();
 		require_once RHYTHMS_DIR . '/inc/class-rhythms-filters.php';
 	}
 
+	/**
+	 * Load Localization files
+	 *
+	 * The first loaded file takes priority
+	 *
+	 * Files can be found in the following order:
+	 * 		WP_LANG_DIR/rhythms/rhythms-LOCALE.mo
+	 * 		WP_LANG_DIR/plugins/rhythms-LOCALE.mo
+	 *
+	 * @return void
+	 * @since    1.0.0
+	 * @version  1.0.0
+	 */
+	privae function localize() {
+
+		// load locale
+		$locale = apply_filters( 'plugin_locale', get_locale(), 'rhythms' );
+
+		// load a rhythms specific locale file if one exists
+		load_textdomain( 'rhythms', WP_LANG_DIR . '/rhythms/rhythms-' . $locale . '.mo' );
+
+		// load localization files
+		load_plugin_textdomain( 'rhythms', false, dirname( plugin_basename( __FILE__ ) ) . '/i18n' );
+
+	}
+
+	/**
+	 * Output our facts on the admin menu bar so you admins know how good you now have it
+	 * @param    obj     $wp_admin_bar  instance of the wp_admin_bar obj
+	 * @return   void
+	 * @since    1.0.0
+	 * @version  1.0.0
+	 */
 	public function output_facts( $wp_admin_bar ) {
 
 		if ( is_admin() ) { return; }
