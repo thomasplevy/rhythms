@@ -168,7 +168,7 @@ final class Rhythms {
 	 * @since    1.0.0
 	 * @version  1.0.0
 	 */
-	privae function localize() {
+	private function localize() {
 
 		// load locale
 		$locale = apply_filters( 'plugin_locale', get_locale(), 'rhythms' );
