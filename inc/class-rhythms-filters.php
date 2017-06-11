@@ -2,7 +2,7 @@
 /**
  * Add Filters to all the things that your readers need to read faster!
  * @since    1.0.0
- * @version  1.0.0
+ * @version  1.1.0
  */
 
 // prevent direct access
@@ -14,18 +14,20 @@ class Rhythms_Filters {
 	 * Constructor
 	 * Add teh filters
 	 * @since    1.0.0
-	 * @version  1.0.0
+	 * @version  1.1.0
 	 */
 	public function __construct() {
 
 		add_filter( 'rhythms_filters', array( $this, 'get_integration_filters' ), 10, 1 );
 
 		$filters = apply_filters( 'rhythms_filters', array(
+			'bloginfo' => 'this_ones_for_bloginfo',
+			'get_comment_text' => 'these_are_easy',
+			'nav_menu_item_title' => 'these_are_easy',
+			'the_author' => 'these_are_easy',
 			'the_content' => 'these_are_easy',
 			'the_title' => 'these_are_easy',
 			'widget_title' => 'these_are_easy',
-			'nav_menu_item_title' => 'these_are_easy',
-			'bloginfo' => 'this_ones_for_bloginfo'
 		) );
 
 		foreach ( $filters as $hook => $func ) {
