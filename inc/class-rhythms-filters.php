@@ -2,7 +2,7 @@
 /**
  * Add Filters to all the things that your readers need to read faster!
  * @since    1.0.0
- * @version  1.1.1
+ * @version  1.1.2
  */
 
 // prevent direct access
@@ -14,7 +14,7 @@ class Rhythms_Filters {
 	 * Constructor
 	 * Add teh filters
 	 * @since    1.0.0
-	 * @version  1.1.1
+	 * @version  1.1.2
 	 */
 	public function __construct() {
 
@@ -23,6 +23,7 @@ class Rhythms_Filters {
 		$filters = apply_filters( 'rhythms_filters', array(
 			'bloginfo' => 'this_ones_for_bloginfo',
 			'get_comment_text' => 'these_are_easy',
+			'get_term' => 'this_ones_for_the_terms',
 			'nav_menu_item_title' => 'these_are_easy',
 			'the_author' => 'these_are_easy',
 			'the_content' => 'these_are_easy',
@@ -109,6 +110,19 @@ class Rhythms_Filters {
 				return $content;
 		}
 
+	}
+
+	/**
+	 * Filter term name and description
+	 * @param    array     $term  WP_Term object
+	 * @return   array
+	 * @since    1.1.2
+	 * @version  1.1.2
+	 */
+	public function this_ones_for_the_terms( $term ) {
+		$term->name = Rhythms()->do_the_thing( $term->name );
+		$term->description = Rhythms()->do_the_thing( $term->description );
+		return $term;
 	}
 
 	/**

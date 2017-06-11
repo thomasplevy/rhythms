@@ -198,7 +198,8 @@ class Rhythms_Optimizer {
 				$part .= ' ';
 			}
 		}
-		$this->set( 'we_fixed_it_omg', implode( '', $split_it_up ) );
+		$content = implode( '', $split_it_up );
+		$this->set( 'we_fixed_it_omg', $content );
 		$this->set( 'now_we_here', strlen( $content ) );
 		return $this;
 

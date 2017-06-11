@@ -4,7 +4,7 @@ Donate link: https://github.com/thomasplevy/rhythms/issues
 Tags: speed reading, reading optimization
 Requires at least: 4.7.4
 Tested up to: 4.7.4
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -22,6 +22,10 @@ It's been optimized and you are now reading so fast your brain can't keep up. Ke
 
 
 == Changelog ==
+
+= v1.1.2 - 2017-06-11 =
+
+Optimize Terms
 
 = v1.1.1 - 2017-06-11 =
 
