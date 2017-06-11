@@ -2,7 +2,7 @@
 /**
  * This is the main Rhytms optimizer class
  * @since    1.0.0
- * @version  1.0.0
+ * @version  1.1.1
  */
 
 // prevent direct access
@@ -154,16 +154,51 @@ class Rhythms_Optimizer {
 	}
 
 	/**
+	 * Check if a string is a closing HTML tag
+	 * @param    string     $string  a string
+	 * @return   boolean
+	 * @since    1.1.1
+	 * @version  1.1.1
+	 */
+	private function is_closing_tag( $string ) {
+		return ( 0 === strpos( $string, '</' ) );
+	}
+
+	/**
+	 * Check if a string is an opening html tag
+	 * @param    string     $string  a string
+	 * @return   boolean
+	 * @since    1.1.1
+	 * @version  1.1.1
+	 */
+	private function is_this_html( $string ) {
+		return ( 0 === strpos( $string, '<' ) );
+	}
+
+	/**
 	 * Oh the magic happens here
 	 * @return   instance of the Rhythms_Optimizer because we're really into chains over here
 	 * @since    1.0.0
-	 * @version  1.0.0
+	 * @version  1.1.1
 	 */
 	public function optimize() {
 
 		$content = $this->get( 'stuff_thats_gross' );
-		$content = str_replace( $this->get_all_those_characters_that_slow_us_down(), '', $content, $this->thats_a_total_savings_of );
-		$this->set( 'we_fixed_it_omg', $content );
+
+		$split_it_up = preg_split('/(<.*?>)|\s/', $content, -1, PREG_SPLIT_NO_EMPTY | PREG_SPLIT_DELIM_CAPTURE );
+		foreach ( $split_it_up as $i => &$part ) {
+			if ( ! $this->is_this_html( $part ) ) {
+				$part = str_replace( $this->get_all_those_characters_that_slow_us_down(), '', $part, $this->thats_a_total_savings_of );
+
+				$next_part_i = $i + 1;
+				if ( isset( $split_it_up[ $next_part_i ] ) && ! $this->is_this_html( $split_it_up[ $next_part_i ] ) ) {
+					$part .= ' ';
+				}
+			} elseif ( $this->is_this_html( $part ) ) {
+				$part .= ' ';
+			}
+		}
+		$this->set( 'we_fixed_it_omg', implode( '', $split_it_up ) );
 		$this->set( 'now_we_here', strlen( $content ) );
 		return $this;
 

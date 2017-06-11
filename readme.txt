@@ -23,7 +23,11 @@ It's been optimized and you are now reading so fast your brain can't keep up. Ke
 
 == Changelog ==
 
-= v1.1.0 - 2017-05-05 =
+= v1.1.1 - 2017-06-11 =
+
+Bugfix: Ensure we don't optimize HTML tags because those silly browser rendering engines are so inefficient they can't read Rhythm optimized HTML (yet!)
+
+= v1.1.0 - 2017-06-11 =
 
 A brand new version just in time for WordCamp OC Plugin-A-Palooza 2017!
 

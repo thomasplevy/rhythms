@@ -2,7 +2,7 @@
 /**
  * Add Filters to all the things that your readers need to read faster!
  * @since    1.0.0
- * @version  1.1.0
+ * @version  1.1.1
  */
 
 // prevent direct access
@@ -14,7 +14,7 @@ class Rhythms_Filters {
 	 * Constructor
 	 * Add teh filters
 	 * @since    1.0.0
-	 * @version  1.1.0
+	 * @version  1.1.1
 	 */
 	public function __construct() {
 
