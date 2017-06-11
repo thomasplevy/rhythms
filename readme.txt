@@ -4,7 +4,7 @@ Donate link: https://github.com/thomasplevy/rhythms/issues
 Tags: speed reading, reading optimization
 Requires at least: 4.7.4
 Tested up to: 4.7.4
-Stable tag: 1.0.0
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -22,6 +22,16 @@ It's been optimized and you are now reading so fast your brain can't keep up. Ke
 
 
 == Changelog ==
+
+= v1.1.0 - 2017-05-05 =
+
+A brand new version just in time for WordCamp OC Plugin-A-Palooza 2017!
+
+This version includes and integration with the popular Yoast SEO plugin as well as optimized filter loading and a few new hooks for all you beautiful developers to hook up with!
+
+**Integrations!**
+
++ Add compatibility for SEO tag optimization when using [Yoast SEO](https://wordpress.org/plugins/wordpress-seo/)
 
 = v1.0.0 - 2017-05-05 =
 
