@@ -18,13 +18,73 @@ class Rhythms_Filters {
 	 */
 	public function __construct() {
 
-		add_filter( 'the_content', array( $this, 'these_are_easy' ), 999, 1 );
-		add_filter( 'the_title', array( $this, 'these_are_easy' ), 999, 1 );
-		add_filter( 'widget_title', array( $this, 'these_are_easy' ), 999, 1 );
-		add_filter( 'nav_menu_item_title', array( $this, 'these_are_easy' ), 999, 1 );
-		add_filter( 'bloginfo', array( $this, 'this_ones_for_bloginfo' ), 999, 2 );
+		add_filter( 'rhythms_filters', array( $this, 'get_integration_filters' ), 10, 1 );
+
+		$filters = apply_filters( 'rhythms_filters', array(
+			'the_content' => 'these_are_easy',
+			'the_title' => 'these_are_easy',
+			'widget_title' => 'these_are_easy',
+			'nav_menu_item_title' => 'these_are_easy',
+			'bloginfo' => 'this_ones_for_bloginfo'
+		) );
+
+		foreach ( $filters as $hook => $func ) {
+
+			add_filter( $hook, array( $this, $func ), 999, 2 );
+
+		}
 
 
+	}
+
+	/**
+	 * Get an array of all integration filters
+	 * @return   array
+	 * @since    1.1.0
+	 * @version  1.1.0
+	 */
+	public function get_integration_filters( $filters ) {
+
+		$integrations = array(
+			'yoast' => 'wpseo_init',
+		);
+
+		foreach ( $integrations as $id => $check ) {
+
+			if ( 'yes' === get_option( sprintf( 'rhythms_do_it_to_%s', $id  ), 'no' ) && function_exists( 'wpseo_init' ) ) {
+
+				$func = sprintf( 'get_%s_integration_filters', $id );
+
+				if ( method_exists( $this, $func ) ) {
+
+					$filters = array_merge( $filters, $this->$func() );
+
+				}
+
+			}
+
+		}
+
+		return $filters;
+
+	}
+
+	/**
+	 * Get integration filters for WP SEO by Yoast
+	 * @return   array
+	 * @since    1.1.0
+	 * @version  1.1.0
+	 */
+	private function get_yoast_integration_filters() {
+		return apply_filters( 'rhythms_yoast_integration_filters', array(
+			'wpseo_title' => 'these_are_easy',
+			'wpseo_metadesc' => 'these_are_easy',
+			'wp_seo_get_bc_title' => 'these_are_easy',
+			'wp_seo_get_bc_ancestors' => 'these_are_easy',
+			'wpseo_metakeywords' => 'these_are_easy', // why?
+			'wpseo_opengraph_title' => 'these_are_easy',
+			'wpseo_opengraph_site_name' => 'these_are_easy',
+		) );
 	}
 
 	/**
